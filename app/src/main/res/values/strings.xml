@@ -9,4 +9,11 @@
 
     <string name="user_name">User</string>
 
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="text_name">Name</string>
+    <string name="text_mobile">Mobile number</string>
+    <string name="text_email">Email id</string>
+    <string name="text_address">Address</string>
+    <string name="text_description">Description</string>
 </resources>
