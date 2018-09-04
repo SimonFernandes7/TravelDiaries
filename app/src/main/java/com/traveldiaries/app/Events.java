@@ -2,6 +2,7 @@ package com.traveldiaries.app;
 
 public class Events {
     private String eventsName, Distance;
+    private Boolean Organised;
 
     public Events() {
     }
