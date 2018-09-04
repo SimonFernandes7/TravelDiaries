@@ -2,7 +2,7 @@ package com.traveldiaries.app;
 
 public class Events {
     private String eventsName, Distance;
-    private Boolean Organised;
+    private Boolean organised;
 
     public Events() {
     }
@@ -10,7 +10,18 @@ public class Events {
     public Events(String event, String distance) {
         this.eventsName = event;
         this.Distance = distance;
+        this.organised = false;
     }
+
+    public  Events(String event, String distance, Boolean organised) {
+        this.eventsName = event;
+        this.Distance = distance;
+        this.organised = organised;
+    }
+
+    public Boolean getOrganised() { return organised; }
+
+    public void setOrganised(Boolean organised) { this.organised = organised; }
 
     public String getEventsName() {
         return eventsName;
