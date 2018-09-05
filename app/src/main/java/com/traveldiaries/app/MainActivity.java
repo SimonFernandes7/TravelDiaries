@@ -145,6 +145,8 @@ public class MainActivity extends AppCompatActivity
             // Handle the Past Trips action
         } else if (id == R.id.nav_managed_trips) {
             // Handle the Organised Trips action
+            Intent i= new Intent(this,OrganisedTrips.class);
+            startActivity(i);
         } else if (id == R.id.nav_contacts) {
             // Handle the Check friends action
         } else if (id == R.id.nav_notifications) {

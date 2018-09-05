@@ -15,13 +15,14 @@ public class EventsAdaptor extends RecyclerView.Adapter<EventsAdaptor.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView eventTitle, eventDistance;
-        public ImageView eventImage;
+        public ImageView eventImage, organiser;
 
         public MyViewHolder(View view) {
             super(view);
             eventTitle = (TextView) view.findViewById(R.id.event_name);
             eventDistance = (TextView) view.findViewById(R.id.journey_distance);
             eventImage = (ImageView) view.findViewById(R.id.event_imageView);
+            organiser = (ImageView) view.findViewById(R.id.image_organiser);
         }
     }
 
@@ -39,9 +40,10 @@ public class EventsAdaptor extends RecyclerView.Adapter<EventsAdaptor.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Events movie = eventsList.get(position);
-        holder.eventTitle.setText(movie.getEventsName());
-        holder.eventDistance.setText(movie.getDistance());
+        Events tripsEvent = eventsList.get(position);
+        holder.eventTitle.setText(tripsEvent.getEventsName());
+        holder.eventDistance.setText(tripsEvent.getDistance());
+        holder.organiser.setVisibility(tripsEvent.getOrganised() ? View.VISIBLE : View.INVISIBLE);
     }
 
     @Override
