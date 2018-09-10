@@ -21,7 +21,7 @@ public class PastTrips extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_organised_trips);
+        setContentView(R.layout.activity_past_trips);
 
         tripsRecyclerView = (RecyclerView) findViewById(R.id.pastTrip_recycler_view);
 
