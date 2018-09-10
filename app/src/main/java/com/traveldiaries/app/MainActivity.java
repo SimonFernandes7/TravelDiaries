@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -85,8 +86,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view, int position) {
                 Events event = eventsList.get(position);
-                Toast.makeText(getApplicationContext(), event.getEventsName() + " is selected!", Toast.LENGTH_SHORT).show();
+
+                Intent i= new Intent(MainActivity.this,TripDetailActivity.class);
+                i.putExtra("events",event);
+                startActivity(i);
+//                Toast.makeText(getApplicationContext(), event.getEventsName() + " is selected!", Toast.LENGTH_SHORT).show();
             }
+
+
 
             @Override
             public void onLongClick(View view, int position) {
@@ -143,6 +150,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         } else if (id == R.id.nav_past_trips) {
             // Handle the Past Trips action
+
+            Intent i= new Intent(this,PastTrips.class);
+            startActivity(i);
         } else if (id == R.id.nav_managed_trips) {
             // Handle the Organised Trips action
             Intent i= new Intent(this,OrganisedTrips.class);

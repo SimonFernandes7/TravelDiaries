@@ -8,15 +8,14 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrganisedTrips extends AppCompatActivity {
+public class PastTrips extends AppCompatActivity {
 
     private List<Events> eventsList = new ArrayList<>();
-    private RecyclerView recyclerView;
+    private RecyclerView tripsRecyclerView;
     private EventsAdaptor mAdapter;
 
     @Override
@@ -24,11 +23,11 @@ public class OrganisedTrips extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organised_trips);
 
-        recyclerView = (RecyclerView) findViewById(R.id.orgnisers_recycler_view);
+        tripsRecyclerView = (RecyclerView) findViewById(R.id.pastTrip_recycler_view);
 
         mAdapter = new EventsAdaptor(eventsList);
 
-        recyclerView.setHasFixedSize(true);
+        tripsRecyclerView.setHasFixedSize(true);
 
         // vertical RecyclerView
         // keep movie_list_row.xml width to `match_parent`
@@ -38,25 +37,25 @@ public class OrganisedTrips extends AppCompatActivity {
         // keep movie_list_row.xml width to `wrap_content`
         // RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
 
-        recyclerView.setLayoutManager(mLayoutManager);
+        tripsRecyclerView.setLayoutManager(mLayoutManager);
 
         // adding inbuilt divider line
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        tripsRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
         // adding custom divider line with padding 16dp
         // recyclerView.addItemDecoration(new MyDividerItemDecoration(this, LinearLayoutManager.VERTICAL, 16));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        tripsRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        recyclerView.setAdapter(mAdapter);
+        tripsRecyclerView.setAdapter(mAdapter);
 
         // row click listener
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        tripsRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), tripsRecyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Events event = eventsList.get(position);
 
-                Intent i= new Intent(OrganisedTrips.this,TripDetailActivity.class);
-                i.putExtra("events",event);
+                Intent i = new Intent(PastTrips.this, TripDetailActivity.class);
+                i.putExtra("events", event);
                 startActivity(i);
             }
 
@@ -66,57 +65,56 @@ public class OrganisedTrips extends AppCompatActivity {
             }
         }));
 
-        prepareOrganisedData();
-
+        preparePastTripData();
     }
 
-    private void prepareOrganisedData() {
-        Events movie = new Events("Rajmachi", "15 km", true);
+    private void preparePastTripData() {
+        Events movie = new Events("Rajmachi", "15 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Leh Ladakh Bike Trip", "20 km", true);
+        movie = new Events("Leh Ladakh Bike Trip", "20 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Star Wars", "10 km", true);
+        movie = new Events("Star Wars", "10 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Shaun the Sheep", " 7 km", true);
+        movie = new Events("Shaun the Sheep", " 7 km", false);
         eventsList.add(movie);
 
         movie = new Events("The Martian", "14 km", true);
         eventsList.add(movie);
 
-        movie = new Events("Mission: Impossible Rogue Nation", "29 km", true);
+        movie = new Events("Mission: Impossible Rogue Nation", "29 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Up", "9 km", true);
+        movie = new Events("Up", "9 km", false);
         eventsList.add(movie);
 
         movie = new Events("Star Trek", "16 km", true);
         eventsList.add(movie);
 
-        movie = new Events("The LEGO Movie", "14 km", true);
+        movie = new Events("The LEGO Movie", "14 km", false);
         eventsList.add(movie);
 
         movie = new Events("Iron Man", "30 km", true);
         eventsList.add(movie);
 
-        movie = new Events("Aliens", "7 km", true);
+        movie = new Events("Aliens", "7 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Chicken Run", "11 km", true);
+        movie = new Events("Chicken Run", "11 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Back to the Future", "5 km", true);
+        movie = new Events("Back to the Future", "5 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Raiders of the Lost Ark", "81 km", true);
+        movie = new Events("Raiders of the Lost Ark", "81 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Goldfinger", "5 km", true);
+        movie = new Events("Goldfinger", "5 km", false);
         eventsList.add(movie);
 
-        movie = new Events("Guardians of the Galaxy", "14 km", true);
+        movie = new Events("Guardians of the Galaxy", "14 km", false);
         eventsList.add(movie);
 
         // notify adapter about data set changes
@@ -124,3 +122,4 @@ public class OrganisedTrips extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 }
+

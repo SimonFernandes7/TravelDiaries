@@ -1,6 +1,8 @@
 package com.traveldiaries.app;
 
-public class Events {
+import java.io.Serializable;
+
+public class Events implements Serializable {
     private String eventsName, Distance;
     private Boolean organised;
 
